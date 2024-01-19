@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+//Déclaration des fonctions
+int pascal(int i, int j);
 
 void main()
 {
