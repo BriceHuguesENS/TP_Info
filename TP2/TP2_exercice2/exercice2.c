@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int tableau_initial_pascal()
+int* tableau_initial_pascal()
 {
 	int* tableau = malloc(sizeof(int)* 3);
 	tableau[0]=0;
@@ -10,7 +10,7 @@ int tableau_initial_pascal()
 	return tableau;
 }
 
-int tableau_nouvelle_ligne_pascal(int* ligne, int n)
+int* tableau_nouvelle_ligne_pascal(int* ligne, int n)
 {
 	int* nouvelle_ligne = malloc(sizeof(int)*(n+1));
 	nouvelle_ligne[0] = 0;
@@ -44,6 +44,6 @@ void affiche_pascal(int n)
 
 void main()
 {
-    affiche_pascal(100);
+    affiche_pascal(10);
 }
 
