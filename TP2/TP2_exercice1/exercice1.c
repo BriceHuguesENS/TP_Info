@@ -31,7 +31,8 @@ int affichage_pascal(int N)
 	{
 		for(int colonne = 0; colonne <= ligne; colonne ++)
 		{
-			printf("%i ", pascal(ligne, colonne));
+			printf("%i 
+			", pascal(ligne, colonne));
 		}
 	printf("\n");
 	}
