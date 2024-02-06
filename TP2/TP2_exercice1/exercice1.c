@@ -1,39 +1,49 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-//Déclaration des fonctions
-int pascal(int i, int j);
-int affichage_pascal(int N);
+int* tableau_initial_pascal()
+{
+	int* tableau = malloc(sizeof(int)* 3);
+	tableau[0]=0;
+	tableau[1]=1;
+	tableau[2]=0;
+	return tableau;
+}
+
+int* tableau_nouvelle_ligne_pascal(int* ligne, int n)
+{
+	int* nouvelle_ligne = malloc(sizeof(int)*(n+1));
+	nouvelle_ligne[0] = 0;
+	nouvelle_ligne[n] = 0;
+	
+	for(int i =1; i < n; i++)
+	{
+		nouvelle_ligne[i] = ligne[i] + ligne[i-1];
+	}
+	return nouvelle_ligne;
+}
+
+void affiche_pascal(int n)
+{
+	int* ligne_actuelle;
+	int* ligne_precedente;
+	ligne_actuelle = tableau_initial_pascal();
+	for(int ligne = 0; ligne <n; ligne++)
+	{
+		for(int colonne = 0; colonne <= ligne; colonne++)
+		{
+			printf("%i ", ligne_actuelle[colonne+1]);
+		}
+		printf("\n");
+		ligne_precedente = ligne_actuelle;
+		ligne_actuelle = tableau_nouvelle_ligne_pascal(ligne_actuelle, ligne + 3);
+		free(ligne_precedente);
+	}
+	free(ligne_actuelle);
+}
 
 void main()
 {
-    //Déclaration des variables
-    
-    affichage_pascal(10);
+    affiche_pascal(10);
 }
 
-int pascal(int i, int j)
-{
-	if(i == 0 && j == 0)
-	{
-		return 1;
-		
-	}
-	
-	if(i ==0)
-		return 0;
-	
-	return pascal(i-1, j) + pascal (i-1, j-1);
-}
-
-int affichage_pascal(int N)
-{
-	for(int ligne = 0; ligne < N; ligne ++)
-	{
-		for(int colonne = 0; colonne <= ligne; colonne ++)
-		{
-			printf("%i 
-			", pascal(ligne, colonne));
-		}
-	printf("\n");
-	}
-}

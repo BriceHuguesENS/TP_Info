@@ -16,6 +16,11 @@ typedef struct Carnet
 } Carnet;
 
 void initialise_carnet(Carnet* carnet);
+
+void nouvel_eleve(Carnet* LeCarnet, char* LeNom, char* LeNumero);
+
+//char* affichage_test(Eleve* LeEleve);
+//void affichage_carnet(Carnet* LeCarnet);
 	
 #endif
 
