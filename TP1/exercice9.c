@@ -5,6 +5,7 @@ float* tableau;   //allocation de la mémoire nécessaire pour stocker le tablea
 //Déclaration des fonctions
 float creation_tableau(float n1, float n2, float n3);
 float moyenne_tableau(float* tab,int taille_tab);
+float absolute(float nb);
 
 void main()
 {
@@ -20,10 +21,16 @@ void main()
     printf("Affichage du tableau:\n");
     for(int i=0;i<3;i++)
     {
-        printf("%f \n", tableau[i]);
+        if(absolute(tableau[i] >10))
+        {
+            printf("%f \n", tableau[i]);
+        }
+        
     }
 
     printf("Affichage de la moyenne: %f\n", moyenne_tableau(tableau,taille));
+
+    
     free(tableau);
 }
 
@@ -44,4 +51,9 @@ float moyenne_tableau(float* tab,int taille_tab)
         moy+=tab[i];
     }
     return moy/taille_tab;
+}
+
+float absolute(float nb)
+{
+    return abs(nb);
 }
